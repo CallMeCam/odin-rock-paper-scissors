@@ -3,6 +3,9 @@ const PLAY_CHOICES = ["rock", "paper", "scissors"];
 
 // text to update on page
 const playMessage = document.getElementById('play-message');
+const playerScore = document.getElementById('player-score');
+const computerScore = document.getElementById('computer-score');
+const currentRound = document.getElementById('round-count');
 
 // variables for storing winner of last round
 let winnerMessage;
@@ -71,6 +74,8 @@ const playRound = function (playerSelection, computerSelection) {
         }
     }
 
+    playerScore.textContent = playerWins;
+    computerScore.textContent = computerWins;
     console.log("Round " + roundCount +" played");
     console.log("Player choice: " + playerSelection);
     console.log("Computer choice: " + computerSelection);
@@ -83,6 +88,9 @@ const resetScores = function () {
     computerWins = 0;
     ties = 0;
     roundCount = 1;
+    playerScore.textContent = playerWins;
+    computerScore.textContent = computerWins;
+    currentRound.textContent = 0;
     console.log("Scores reset");
 }
 
@@ -103,6 +111,7 @@ const game = function (playerSelection) {
     if (roundCount < 5) {
         playRound(playerSelection, getComputerChoice(PLAY_CHOICES));
         roundCount++;
+        currentRound.textContent = roundCount;
         playMessage.textContent = winnerMessage;
     } else {
         // play final round
@@ -124,3 +133,6 @@ const buttonArray = [...selectionButton];
 buttonArray.forEach(button => button.addEventListener('click', (e) => {
     game(button.id);
 }));
+
+const resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', (e) => {resetScores()});

@@ -1,17 +1,101 @@
+* {
+    --background-color: #d6bee6;
+    --card-radius: 15px;
+    --div-shadow: 33px 33px 66px #b4a0c1,
+                -33px -33px 66px #f8dcff;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Space-Grotesk', sans-serif;
+    color: white;
+    background: var(--background-color);
+    /* background: linear-gradient(71deg, rgba(200,171,219,1) 0%, rgba(255,139,139,1) 50%, rgba(255,219,169,1) 100%) no-repeat; */
+    background-size: cover;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+button {
+    background-color: white;
+    border-style: solid;
+    border-color: #3a1852;
+    padding: 12px 24px;
+    border-radius: var(--card-radius);
+    font-size: 16px;
+    color: #3a1852;
+}
+
+button:hover {
+    background-color: #3a1852;
+    border-color: white;
+    color: white;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+.title-area {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.score-area {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.score-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color);
+    padding: 16px 32px;
+    border-radius: var(--card-radius);
+    box-shadow:  var(--div-shadow);
+}
+
 .play-area {
     display: flex;
     justify-content: center;
-    font-size: 32px;
+    font-weight: bold;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
     gap: 16px;
+}
+
+.score-title {
+    font-weight: bold;
+}
+
+.score-line {
+    width: 100%;
+    border-style: solid;
+}
+
+#play-message {
+    background: white;
+    padding: 16px 32px;
+    border-radius: var(--card-radius);
+    color: #3a1852;
+}
+
+#reset {
+    border-color: white;
 }
